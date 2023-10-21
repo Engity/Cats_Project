@@ -1,0 +1,45 @@
+.stat{
+    align-items: center;
+    background-clip: padding-box;
+    background-color: #fa6400;
+
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    box-shadow: rgba(155, 0, 0, 0.896) 5px 5px 3px;
+    box-sizing: border-box;
+    color: white;
+    display: inline-flex;
+   
+    line-height: 1.25;
+    min-height: 30px;
+    margin-top:20px;
+    margin-left: 50px;
+    margin-right: 50px;
+
+    padding: 15px;
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+}
+
+.stat:hover,
+.stat:focus {
+    background-color: #fb8332;
+    box-shadow: rgba(155, 0, 0, 0.896) 3px 3px 5px;
+    text-shadow: rgba(155, 0, 0, 0.896) 3px 3px 5px;
+}
+
+.stat:hover {
+    transform: translateY(-5px);
+}
+
+.stat:active {
+    background-color: #c85000;
+    box-shadow: rgba(155, 0, 0, 0.896) 3px 3px 5px;
+    transform: translateY(0);
+}
