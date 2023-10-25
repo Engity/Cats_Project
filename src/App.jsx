@@ -1,8 +1,11 @@
 import { useState, useLayoutEffect, useRef, useEffect } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
 import axios from "axios";
 import InfoDisplayer from './components/InfoDisplayer';
 import StatisticSession from './components/StatisticSession';
+import DisplayCard from './components/DisplayCard';
+import ChartContainer from './components/ChartContainer';
 const API_KEY = import.meta.env.VITE_API_KEY
 
 const fetchData = async (action, limit = 1) => {
@@ -50,7 +53,8 @@ function App() {
 
             minWeight = Math.min(weight[0], minWeight);
             maxWeight = Math.max(weight[1], maxWeight);
-            avg += (weight[0] + weight[1]) / 2;
+            avg += (parseFloat(weight[0]) + parseFloat(weight[1])) / 2;
+           
         });
 
         setStatistic({
@@ -66,11 +70,13 @@ function App() {
     }
 
     useLayoutEffect(() => {
-        //Fetch data from API
+        // Fetch data from API
         fetchData((response) => {
             processData(response.data);
 
-        }, 5)
+        }, 10)
+
+        // processData(JSON.parse(import.meta.env.VITE_FETCH_DATA));
     }, []);
 
 
@@ -139,39 +145,50 @@ function App() {
             <div style={{ display: 'flexbox' }}>
                 <StatisticSession stat={statistic} />
                 <br></br>
+                <div className='ChartAndFilterContainer'>
+                    <div className='FilterSection'>
+                        <h2>Filters</h2>
+                        <p>Search: </p>
+                        <input className='Filter' type='text' ref={textFilterRef} onChange={() => updateFilter('name', textFilterRef)} />
+                        <br></br>
+                        <p>Origin:</p>
+                        <select ref={originRef} className='Filter' onChange={() => updateFilter('origin', originRef)}>
+                            {true ? [...statistic.origins].map((origin) => {
+                                return <option key={origin} value={origin}>{origin}</option>
+                            }) : <null></null>
+                            }
+                        </select>
 
-                <div className='FilterSection'>
-                    <h2>Filters</h2>
-                    <p>Search: </p>
-                    <input className='Filter' type='text' ref={textFilterRef} onChange={() => updateFilter('name', textFilterRef)} />
-                    <br></br>
-                    <p>Origin:</p>
-                    <select ref={originRef} className='Filter' onChange={() => updateFilter('origin', originRef)}>
-                        {true ? [...statistic.origins].map((origin) => {
-                            return <option key={origin} value={origin}>{origin}</option>
-                        }) : <null></null>
-                        }
-                    </select>
+                        <p>Min Weight</p>
+                        <input className='Filter'
+                            type='number' ref={minWeightFilterRef} placeholder={statistic.minWeight}
+                            onChange={() => updateFilter('minWeight', minWeightFilterRef)}
+                        />
 
-                    <p>Min Weight</p>
-                    <input className='Filter'
-                        type='number' ref={minWeightFilterRef} placeholder={statistic.minWeight}
-                        onChange={() => updateFilter('minWeight', minWeightFilterRef)}
-                    />
-
-                    <p>Max Weight</p>
-                    <input className='Filter'
-                        type='number' ref={maxWeightFilterRef} placeholder={statistic.maxWeight}
-                        onChange={() => updateFilter('maxWeight', maxWeightFilterRef)}
-                    />
+                        <p>Max Weight</p>
+                        <input className='Filter'
+                            type='number' ref={maxWeightFilterRef} placeholder={statistic.maxWeight}
+                            onChange={() => updateFilter('maxWeight', maxWeightFilterRef)}
+                        />
 
 
+                    </div>
+                    <ChartContainer stat={fetchInfo} />
                 </div>
                 <br></br>
 
-                <InfoDisplayer
-                    info={filterData}
-                />
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/">
+                            <Route index element={<InfoDisplayer
+                                info={filterData}
+                            />} />
+                            <Route path="cat/:id" element={<DisplayCard info={filterData} />}></Route>
+                        </Route>
+                    </Routes>
+
+                </BrowserRouter>
+
             </div>
         </div>
     )

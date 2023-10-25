@@ -1,4 +1,4 @@
-# Web Development Project 5 - Cats!
+# Web Development Project 6 - Cats!
 
 Submitted by: Thomas Nguyen
 
@@ -9,22 +9,17 @@ Time spent: 10 hours spent in total
 
 The following **required** functionality is completed:
 
-- [X] **The list displays a list of data fetched using an API call**
-- [X] **Data uses the useEffect React hook and async/await syntax**
-- [X] **The app dashboard includes at least three summary statistics about the data such as**
-  - [X] **Number Origins**
-  - [X] **Average Weight**
-  - [X] **Minimum Weight**
-  - [X] **Maximum Weight**
-- [X] **A search bar allows the user to search for an item in the fetched data**
-- [X] **Multiple different filters (2+) allow the user to filter items in the database by specified categories**
+- [X] **The app includes at least one unique chart developed using the fetched data that tell an interesting story**
+- [X] **Clicking on an item in the list view displays more details about it**
+- [X] **Clicking on an item has a direct, unique link to that item's detail view page**
 
 The following **optional** features are implemented:
 
-- [X] Multiple filters can be applied simultaneously
-- [X] Filters use different input types such as a text input, a selection, or a slider
-- [X] The user can enter specific bounds for filter values (Weight)
+- [ ] The site's customized dashboard contains more content that explains what is interesting about the data
+- [ ] The site allows users to toggle between different data visualizations
 
+Additional Features:
+- [X] Entries traversal
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:

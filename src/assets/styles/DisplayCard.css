@@ -1,0 +1,40 @@
+#goingBackButton {
+    background-color: blue;
+    box-shadow: rgba(255, 123, 0, 0.896) 5px 5px 3px;
+}
+
+.DisplayCard {
+    border-radius: 10%;
+    background-color: rgba(1, 32, 1, 0.4);
+    width: 50%;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.detailTable {
+    padding: 10px;
+    margin: 0 auto;
+    border-style: none;
+}
+
+.colHeader {
+    background-color: rgba(144, 154, 144, 0.68);
+    border-radius: 10px;
+    padding: 5px;
+    font-weight: bold;
+    width: 300px;
+    height: 40px;
+}
+
+.colData{
+    font-size: 12px;
+    font-weight: light;
+    text-align: left;
+    padding:5px;
+    max-width: 800px;
+}
+
+.detailTable .table-row:hover, .colData:hover{    
+    background-color: antiquewhite;
+    font-size: 20px;
+}

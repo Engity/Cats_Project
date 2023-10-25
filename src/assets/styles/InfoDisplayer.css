@@ -3,15 +3,17 @@
     background-color: rgba(0, 0, 0, 0.4);
     margin: 0 auto;
     width: 80%;
+    border-radius: 20px;
+    padding: 10px;
 }
 
 .InfoDisplayer .InfoTable img {
     max-width: 100px;
-    max-height: 100px;
+    max-height: 200px;
 }
 
-.InfoTable{
-    width:100%;
+.InfoTable {
+    width: 100%;
     display: table;
 }
 
@@ -20,15 +22,22 @@
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.03em;
-    width:100%;
-} 
+    width: 100%;
+}
 
 .table-row {
     padding: 10px 0;
     background-color: #ffffff;
     box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
     color: black;
-    width:100%;
+    width: 100%;
+    max-height: 100px;
+}
+
+.table-row:hover {
+    background-color: #75b5b9;
+    color: #501704;
+    font-size: 20px;
 }
 
 #NoData {
@@ -43,6 +52,59 @@
     width: 25%;
 }
 
-.th{
-    width:25%;
+.th {
+    width: 25%;
+}
+
+.TableTraversal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+.InfoDisplayer button {
+    align-items: center;
+    background-clip: padding-box;
+    background-color: #fa6400;
+
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    box-shadow: rgba(155, 0, 0, 0.896) 5px 5px 3px;
+    box-sizing: border-box;
+    color: white;
+    display: inline-flex;
+   
+    line-height: 1.25;
+    min-height: 30px;
+    margin-top:20px;
+    margin-left: 50px;
+    margin-right: 50px;
+
+    padding: 15px;
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+}
+
+.InfoDisplayer button:hover,
+.InfoDisplayer button:focus {
+    background-color: #fb8332;
+    box-shadow: rgba(155, 0, 0, 0.896) 3px 3px 5px;
+    text-shadow: rgba(155, 0, 0, 0.896) 3px 3px 5px;
+}
+
+.InfoDisplayer button:hover {
+    transform: translateY(-5px);
+}
+
+.InfoDisplayer button:active {
+    background-color: #c85000;
+    box-shadow: rgba(155, 0, 0, 0.896) 3px 3px 5px;
+    transform: translateY(0);
 }
